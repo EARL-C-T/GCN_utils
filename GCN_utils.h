@@ -10,12 +10,12 @@ extern const double r2d;
 
 
 
-
-typedef struct degreeMinSec{
+struct dms{
 	int DEG;
 	int MIN;
 	double SEC;
-}DMS;//degree 
+};
+typedef struct dms DMS;
 
 double dec_rad(double DEC);//decimal deg to radians
 
