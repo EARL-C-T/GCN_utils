@@ -2,7 +2,7 @@
 #define GCN_UTILS_H
 #include <string.h>
 #include <math.h>
-
+extern const double r_nm;
 extern const double r_km;
 extern const double pi;
 extern const double d2r;

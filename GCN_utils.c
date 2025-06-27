@@ -1,6 +1,7 @@
  #include "GCN_utils.h"
 #include <math.h>
 #include <string.h>
+const double r_nm=3440.065;
 const double r_km=6371.0000;
 const double pi=M_PI;
 const double d2r=pi/180;
@@ -27,8 +28,8 @@ DMS dec_dms(double DEC){
 	double deg;
 	double min;
 	DMS dms;
-	deg=modf(DEC,&tmp1);
-	min=modf((tmp1*60),&tmp2);
+	tmp1=modf(DEC,&deg);
+	tmp2=modf((tmp1*60),&min);
 	dms.SEC=tmp2*60;
 	dms.MIN=min;
 	dms.DEG=deg;
@@ -41,10 +42,10 @@ DMS rad_dms(double RAD){
 /**************arc to dst***************/
 
 double nm_rad(double NM){
-	return((180*60)/pi)*NM;
+	return NM/r_nm;
 }
 double rad_nm(double RAD){
-	return (pi/(180*60))*RAD;
+	return r_nm*RAD;
 }
 double rad_km(double RAD){
 	return r_km*RAD;
